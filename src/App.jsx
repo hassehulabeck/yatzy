@@ -12,6 +12,14 @@ function App() {
     {id: 5, value: 6, isLocked: false },
   ])
 
+  const [rolls, setRolls] = useState(0)
+
+  // Derived value (sum) with reducer
+  const sum = dice.reduce((acc, die) => {
+    return acc + die.value
+  }, 0)
+
+
   function roll(id) {
     const updatedDice = dice.map(die => {
       if (die.id === id) {
@@ -25,10 +33,11 @@ function App() {
   return (
     <>
       <h1>Yatzy</h1>
+      <p>Summa: { sum }</p>
       <section>
         {
           dice.map(die => (
-            <Die key={die.id} value={die.value} isLocked={die.isLocked} clickHandler={roll(die.id)} />
+            <Die key={die.id} value={die.value} isLocked={die.isLocked} clickHandler={() => roll(die.id)} />
           ))
         }
       </section>  

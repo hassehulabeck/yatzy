@@ -1,0 +1,18 @@
+article {
+    border-radius: 8px;
+    padding: 0;
+    margin: .2rem;
+    background-color: wheat;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    color: black;
+    font-size: 5rem;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+.locked {
+    background-color: gray;
+    cursor: not-allowed;
+}

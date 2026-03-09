@@ -20,10 +20,18 @@ function App() {
   }, 0)
 
 
-  function roll(id) {
+  function roll() {
+    const updatedDice = dice.map(die => {
+      if (die.isLocked) return die
+      return {...die, value: Math.ceil(Math.random() * 6)}
+    })
+    setDice(updatedDice)
+  }
+
+  function lock(id) {
     const updatedDice = dice.map(die => {
       if (die.id === id) {
-        return {...die, value: Math.ceil(Math.random() * 6)}
+        return {...die, isLocked: !die.isLocked }
       }
       return die
     })
@@ -34,10 +42,16 @@ function App() {
     <>
       <h1>Yatzy</h1>
       <p>Summa: { sum }</p>
+      <button onClick={roll}>Roll</button>
       <section>
         {
           dice.map(die => (
-            <Die key={die.id} value={die.value} isLocked={die.isLocked} clickHandler={() => roll(die.id)} />
+            <Die 
+              key={die.id} 
+              value={die.value} 
+              isLocked={die.isLocked} 
+              lockHandler={() => lock(die.id)} 
+            />
           ))
         }
       </section>  

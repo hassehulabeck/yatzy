@@ -1,6 +1,6 @@
 import styles from './Die.module.css'
 
-export function Die({value, isLocked, clickHandler}) {
+export function Die({value, isLocked, lockHandler}) {
 
     const dieFaces = {
 
@@ -12,15 +12,8 @@ export function Die({value, isLocked, clickHandler}) {
         6: "⚅"
     }
     
-    if (isLocked){
-        return (
-            <article className={styles.locked}>
-                { dieFaces[value] }
-            </article>
-        )
-    }   
     return (        
-        <article onClick={clickHandler}>
+        <article onClick={lockHandler} className={ isLocked ? styles.locked : ''}>
             { dieFaces[value] }
         </article>
     )

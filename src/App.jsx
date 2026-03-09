@@ -15,8 +15,7 @@ function App() {
   function roll(id) {
     const updatedDice = dice.map(die => {
       if (die.id === id) {
-        die = Math.floor(Math.random() * 6)
-        return die
+        return {...die, value: Math.ceil(Math.random() * 6)}
       }
       return die
     })

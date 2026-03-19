@@ -5,11 +5,11 @@ import { Die } from './Die'
 function App() {
 
   const [dice, setDice] = useState([
-    {id: 1, value: 1, isLocked: false },
-    {id: 2, value: 1, isLocked: false },
-    {id: 3, value: 4, isLocked: false },
-    {id: 4, value: 2, isLocked: true },
-    {id: 5, value: 6, isLocked: false },
+    {id: 1, value: null, isLocked: false },
+    {id: 2, value: null, isLocked: false },
+    {id: 3, value: null, isLocked: false },
+    {id: 4, value: null, isLocked: true },
+    {id: 5, value: null, isLocked: false },
   ])
 
   const [rolls, setRolls] = useState(0)

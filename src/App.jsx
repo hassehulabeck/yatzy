@@ -12,6 +12,7 @@ function App() {
     {id: 5, value: null, isLocked: false },
   ])
 
+  // Some change here
   const [rolls, setRolls] = useState(3)
 
   useEffect(() => {

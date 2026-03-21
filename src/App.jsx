@@ -40,11 +40,12 @@ function App() {
 
 
   return (
-    <>
+    <main>
+      <section className="scoreboard"></section>
       <h1>Yatzy</h1>
       <p>Summa: { sum }</p>
       <button onClick={roll}>Roll</button>
-      <section>
+      <section className="diceboard">
         {
           dice.map(die => (
             <Die 
@@ -56,7 +57,7 @@ function App() {
           ))
         }
       </section>  
-    </>
+    </main>
   )
 }
 

@@ -37,6 +37,7 @@ function App() {
   )
 
   const [rolls, setRolls] = useState(3)
+  const numbers = scoreboardData.filter(item => item?.number !== undefined)
 
   useEffect(() => {
     roll()
@@ -53,15 +54,16 @@ function App() {
       return {...die, value: Math.ceil(Math.random() * 6)}
     })
     setDice(updatedDice)
-    checkNumber(1, updatedDice)
+    updateNumberScores(updatedDice)
     setRolls(rolls - 1)
   }
 
-  const checkNumber = (number, currentDice) => {
-    const frequency = currentDice.filter(die => die.value === number).length
-
-    const newValue = number * frequency
-    const updatedScoreboard = scoreboardData.map((item, index) => index === number - 1 ? { ...item, value: newValue } : item)
+  const updateNumberScores = (currentDice) => {
+    const updatedScoreboard = scoreboardData.map(item => {
+      if (item.number === undefined) return item
+      const frequency = currentDice.filter(die => die.value === item.number).length
+      return { ...item, value: item.number * frequency }
+    })
     setScoreboardData(updatedScoreboard)
   }
 

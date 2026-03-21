@@ -15,12 +15,12 @@ function App() {
 
   const [scoreboardData, setScoreboardData] = useState(
     [
-      {'name': 'ettor', 'value': null, 'isUsed': false },
-      {'name': 'tvåor', 'value': null, 'isUsed': false },
-      {'name': 'treor', 'value': null, 'isUsed': false },
-      {'name': 'fyror', 'value': null, 'isUsed': false },
-      {'name': 'femmor', 'value': null, 'isUsed': false },
-      {'name': 'sexor', 'value': null, 'isUsed': false },
+      {'name': 'ettor', 'value': null, 'isUsed': false, 'number': 1 },
+      {'name': 'tvåor', 'value': null, 'isUsed': false, 'number': 2  },
+      {'name': 'treor', 'value': null, 'isUsed': false, 'number': 3  },
+      {'name': 'fyror', 'value': null, 'isUsed': false, 'number': 4  },
+      {'name': 'femmor', 'value': null, 'isUsed': false, 'number': 5  },
+      {'name': 'sexor', 'value': null, 'isUsed': false, 'number': 6  },
       {'name': 'summa', 'value': null, 'isUsed': false },
       {'name': 'bonus', 'value': null, 'isUsed': false },
       {'name': 'ett par', 'value': null, 'isUsed': false },
@@ -53,7 +53,16 @@ function App() {
       return {...die, value: Math.ceil(Math.random() * 6)}
     })
     setDice(updatedDice)
+    checkNumber(1, updatedDice)
     setRolls(rolls - 1)
+  }
+
+  const checkNumber = (number, currentDice) => {
+    const frequency = currentDice.filter(die => die.value === number).length
+
+    const newValue = number * frequency
+    const updatedScoreboard = scoreboardData.map((item, index) => index === number - 1 ? { ...item, value: newValue } : item)
+    setScoreboardData(updatedScoreboard)
   }
 
   function lock(id) {

@@ -13,7 +13,7 @@ export function Scoreboard({ data }) {
                         { scoreboardItem.name }
                     </td>
                     <td>
-                        { scoreboardItem.value = null ? "0" : scoreboardItem.value    }
+                        { scoreboardItem.value === null ? "0" : scoreboardItem.value }
                     </td>
                 </tr>
             ))

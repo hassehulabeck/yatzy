@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 480px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -7,22 +7,52 @@
 
 main {
   display: flex;
-  flex-wrap: wrap;
-}
-section {
-  display: flex;
-}
-.controls {
-  flex: 100%;
-  margin: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
 }
 
+/* Row 1: heading */
+main h1 {
+  margin: 0;
+}
+
+/* Row 2: dice */
 .diceboard {
   display: flex;
+  gap: 0.5rem;
+  justify-content: center;
 }
 
-/* scoreboard table */
-table, td {
+/* Row 3: controls (button row) */
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+/* Row 4: scoreboard */
+.scoreboard {
+  width: 100%;
+}
+
+.scoreboard table {
+  width: 100%;
   border-collapse: collapse;
+}
+
+.scoreboard td {
   border: 1px solid white;
+  padding: 0.25rem 0.5rem;
+}
+
+/* 3/4 for name, 1/4 for value */
+.scoreboard td:first-child {
+  width: 75%;
+  text-align: left;
+}
+
+.scoreboard td:last-child {
+  width: 25%;
+  text-align: right;
 }

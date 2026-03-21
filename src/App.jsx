@@ -69,24 +69,27 @@ function App() {
 
   return (
     <main>
-      <section className="controls">
-        <h1>Yatzy</h1>
-        <button onClick={roll} disabled={rolls <= 0 ? 'disabled' : ''}>Roll ({rolls} left)</button>
-        <section>
-          {
-            dice.map(die => (
-              <Die 
-              key={die.id} 
-              value={die.value} 
-              isLocked={die.isLocked} 
-              lockHandler={() => lock(die.id)} 
+          <h1>Yatzy</h1>
+    
+          <div className="diceboard">
+            {dice.map(die => (
+              <Die
+                key={die.id}
+                value={die.value}
+                isLocked={die.isLocked}
+                lockHandler={() => lock(die.id)}
               />
-            ))
-          }
-        </section>  
-      </section>
-      <Scoreboard data={scoreboardData} />
-    </main>
+            ))}
+          </div>
+    
+          <div className="controls">
+            <button onClick={roll} disabled={rolls <= 0}>Roll ({rolls} left)</button>
+          </div>
+    
+          <div className="scoreboard">
+            <Scoreboard data={scoreboardData} />
+          </div>
+        </main>
   )
 }
 

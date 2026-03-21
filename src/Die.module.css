@@ -12,6 +12,7 @@ article {
     padding: 0;
     cursor: pointer;
     flex-flow: column;
+    line-height: 1;
 }
 button {
     font-size: 1rem;

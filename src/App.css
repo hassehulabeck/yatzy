@@ -5,6 +5,24 @@
   text-align: center;
 }
 
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
 section {
   display: flex;
+}
+.controls {
+  flex: 100%;
+  margin: 1rem;
+}
+
+.diceboard {
+  display: flex;
+}
+
+/* scoreboard table */
+table, td {
+  border-collapse: collapse;
+  border: 1px solid white;
 }

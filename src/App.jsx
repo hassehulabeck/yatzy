@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import { Die } from './Die'
+import { Scoreboard } from './Scoreboard'
 
 function App() {
 
@@ -11,6 +12,29 @@ function App() {
     {id: 4, value: null, isLocked: false },
     {id: 5, value: null, isLocked: false },
   ])
+
+  const [scoreboardData, setScoreboardData] = useState(
+    [
+      {'name': 'ettor', 'value': null, 'isUsed': false },
+      {'name': 'tvåor', 'value': null, 'isUsed': false },
+      {'name': 'treor', 'value': null, 'isUsed': false },
+      {'name': 'fyror', 'value': null, 'isUsed': false },
+      {'name': 'femmor', 'value': null, 'isUsed': false },
+      {'name': 'sexor', 'value': null, 'isUsed': false },
+      {'name': 'summa', 'value': null, 'isUsed': false },
+      {'name': 'bonus', 'value': null, 'isUsed': false },
+      {'name': 'ett par', 'value': null, 'isUsed': false },
+      {'name': 'två par', 'value': null, 'isUsed': false },
+      {'name': 'tretal', 'value': null, 'isUsed': false },
+      {'name': 'fyrtal', 'value': null, 'isUsed': false },
+      {'name': 'liten straight', 'value': null, 'isUsed': false },
+      {'name': 'stor straight', 'value': null, 'isUsed': false },
+      {'name': 'kåk', 'value': null, 'isUsed': false },
+      {'name': 'chans', 'value': null, 'isUsed': false },
+      {'name': 'yatzy', 'value': null, 'isUsed': false },
+      {'name': 'total', 'value': null, 'isUsed': false },
+    ]
+  )
 
   const [rolls, setRolls] = useState(3)
 
@@ -44,24 +68,27 @@ function App() {
 
 
   return (
-    <>
-      <h1>Yatzy</h1>
-      <p>Summa: { sum }</p>
-      <button onClick={roll} disabled={rolls <= 0 ? 'disabled' : ''}>Roll ({rolls} left)</button>
-      <section>
-        {
-          dice.map(die => (
-            <Die 
+    <main>
+      <section className="controls">
+        <h1>Yatzy</h1>
+        <button onClick={roll} disabled={rolls <= 0 ? 'disabled' : ''}>Roll ({rolls} left)</button>
+        <section>
+          {
+            dice.map(die => (
+              <Die 
               key={die.id} 
               value={die.value} 
               isLocked={die.isLocked} 
               lockHandler={() => lock(die.id)} 
-            />
-          ))
-        }
-      </section>  
-    </>
+              />
+            ))
+          }
+        </section>  
+      </section>
+      <Scoreboard data={scoreboardData} />
+    </main>
   )
 }
 
 export default App
+// Code review exercise

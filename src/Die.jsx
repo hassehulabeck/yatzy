@@ -18,3 +18,5 @@ export function Die({value, isLocked, lockHandler}) {
         </article>
     )
 }
+
+// Comment to add some text for PR and code review

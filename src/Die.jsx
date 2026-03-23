@@ -20,3 +20,5 @@ export function Die({value, isLocked, lockHandler}) {
 }
 
 // Comment to add some text for PR and code review
+
+// Here's some changes after the PR and CR.
